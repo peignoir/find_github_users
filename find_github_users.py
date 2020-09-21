@@ -5,7 +5,7 @@ ACCESS_TOKEN = 'YOUR GITHUB TOKEN'
 g = Github(ACCESS_TOKEN)
 
 
-def search_github(keywords):
+def search_github():
     query = ' '.join(keywords) + {True: '',False: ' language:'}[languages == ['']] +'+language:'.join(languages) + {True: '',False: ' location:' + country }[country == '']
     print('The query is ->' + query)
     result = g.search_users(query , 'followers', 'desc')
@@ -26,7 +26,4 @@ if __name__ == '__main__':
     languages = input('Enter langauge(s)[e.g C++, javascript]: ')
     keywords = [keyword.strip() for keyword in keywords.split(',')]
     languages = [language.strip() for language in languages.split(',')]
-    print(country == '')
-    print(keywords)
-    print(languages == [''])
-    search_github(keywords)
+    search_github()
